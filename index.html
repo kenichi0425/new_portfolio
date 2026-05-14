@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YAMADA WEB DESIGN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="top.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo">YAMADA WEB DESIGN</a>
+      <nav class="global-nav">
+        <ul class="global-nav__list">
+          <li><a href="#about"   class="global-nav__link">私について</a></li>
+          <li><a href="#service" class="global-nav__link">事業内容</a></li>
+          <li><a href="#works"   class="global-nav__link">制作実績</a></li>
+          <li><a href="#contact" class="global-nav__link global-nav__link--btn">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Mobile Nav ===== -->
+  <nav class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav__close" id="mobileNavClose" aria-label="閉じる">
+      <span></span><span></span>
+    </button>
+    <ul class="mobile-nav__list">
+      <li><a href="#about"   class="mobile-nav__link">私について</a></li>
+      <li><a href="#service" class="mobile-nav__link">事業内容</a></li>
+      <li><a href="#works"   class="mobile-nav__link">制作実績</a></li>
+      <li><a href="#contact" class="mobile-nav__link">お問い合わせ</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-nav__overlay" id="mobileNavOverlay"></div>
+
+  <main>
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero__content">
+        <p class="hero__label">Web Designer / Freelancer</p>
+        <h1 class="hero__title">成果につながる<br>Webサイトを、<br>戦略からデザインします。</h1>
+        <p class="hero__desc">集客・お問い合わせ・売上につながる<br>戦略設計から制作まで一貫対応。</p>
+        <div class="hero__buttons">
+          <a href="#contact" class="btn btn--dark">まずは相談する</a>
+          <a href="#works"   class="btn btn--outline">制作実績を見る</a>
+        </div>
+      </div>
+      <!-- 実際の画像に差し替え: <img src="images/hero.jpg" alt=""> -->
+      <div class="hero__image"></div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section class="about" id="about">
+      <div class="about__inner container">
+        <div class="about__content">
+          <p class="lbl">ABOUT</p>
+          <h2 class="about__title">ビジネスを支える<br>Webパートナーとして</h2>
+          <p class="about__desc">中小企業・個人事業主様向けに、成果につながるWebサイトを制作しています。デザインだけではなく、戦略設計・導線設計・SEOまで一貫対応します。</p>
+          <a href="#" class="view-more">view more <span class="arrow-circle"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+        </div>
+        <!-- 実際の画像に差し替え: <img src="images/about.jpg" alt=""> -->
+        <div class="about__image"></div>
+      </div>
+    </section>
+
+    <!-- ===== Service ===== -->
+    <section class="service" id="service">
+      <div class="service__inner container">
+        <div class="service__heading">
+          <h2 class="section-title">事業内容</h2>
+          <p class="lbl">Service</p>
+        </div>
+        <div class="service__grid">
+
+          <div class="service__card">
+            <div class="service__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="13" rx="2"/><rect x="6" y="6" width="8" height="6" rx="0.5"/>
+                <line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="16" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3 class="service__card-title">Webサイト制作</h3>
+            <p class="service__card-desc">コーポレートサイト・LP・採用サイト制作</p>
+          </div>
+
+          <div class="service__card">
+            <div class="service__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="14" rx="2"/>
+                <polyline points="8 13 10 11 8 9"/><line x1="13" y1="11" x2="16" y2="11"/>
+                <line x1="7" y1="21" x2="17" y2="21"/>
+              </svg>
+            </div>
+            <h3 class="service__card-title">デザイン設計</h3>
+            <p class="service__card-desc">UXを意識した導線設計とUI設計</p>
+          </div>
+
+          <div class="service__card">
+            <div class="service__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+            <h3 class="service__card-title">SEO対策</h3>
+            <p class="service__card-desc">集客導線を意識したSEO内部設計</p>
+          </div>
+
+          <div class="service__card">
+            <div class="service__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <h3 class="service__card-title">保守運用</h3>
+            <p class="service__card-desc">公開後の改善運用まで対応</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Works ===== -->
+    <section class="works" id="works">
+      <div class="works__header container">
+        <div>
+          <h2 class="section-title">制作実績</h2>
+          <p class="lbl">Works</p>
+        </div>
+        <a href="#" class="view-more">view more <span class="arrow-circle"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+      </div>
+
+      <div class="slider" id="slider">
+        <button class="slider__btn slider__btn--prev" aria-label="前へ">&#10094;</button>
+        <div class="slider__viewport">
+          <div class="slider__track" id="sliderTrack">
+            <div class="slider__item">
+              <div class="slider__img" style="background-image:url('images/works1.jpg')"></div>
+              <p class="slider__title">コーポレートサイト</p>
+              <p class="slider__label">Corporate</p>
+            </div>
+            <div class="slider__item">
+              <div class="slider__img" style="background-image:url('images/works2.jpg')"></div>
+              <p class="slider__title">採用サイト</p>
+              <p class="slider__label">Recruit</p>
+            </div>
+            <div class="slider__item">
+              <div class="slider__img" style="background-image:url('images/works3.jpg')"></div>
+              <p class="slider__title">ブランドサイト</p>
+              <p class="slider__label">Brand</p>
+            </div>
+            <div class="slider__item">
+              <div class="slider__img" style="background-image:url('images/works4.jpg')"></div>
+              <p class="slider__title">ECサイト</p>
+              <p class="slider__label">EC</p>
+            </div>
+            <div class="slider__item">
+              <div class="slider__img" style="background-image:url('images/works5.jpg')"></div>
+              <p class="slider__title">メディアサイト</p>
+              <p class="slider__label">Media</p>
+            </div>
+          </div>
+        </div>
+        <button class="slider__btn slider__btn--next" aria-label="次へ">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="contact" id="contact">
+      <div class="contact__inner container">
+        <div class="contact__content">
+          <p class="lbl">CONTACT</p>
+          <h2 class="contact__title">お問い合わせ・ご相談</h2>
+          <p class="contact__desc">ウェブに関することならお気軽にご相談ください。<br>お見積り依頼のみも可能です。</p>
+        </div>
+        <a href="#" class="btn btn--dark btn--pill">お問い合わせをする <span class="arrow-circle arrow-circle--light"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__brand">
+        <p class="footer__logo">YAMADA WEB DESIGN</p>
+        <p class="footer__tagline">戦略設計からデザイン・構築・運用まで。</p>
+      </div>
+      <nav>
+        <ul class="footer__nav-list">
+          <li><a href="#about">私について</a></li>
+          <li><a href="#service">事業内容</a></li>
+          <li><a href="#works">制作実績</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="top.js"></script>
+</body>
+</html>

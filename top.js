@@ -153,18 +153,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   nextBtn.addEventListener('click', () => { next(); startAuto(); });
   prevBtn.addEventListener('click', () => { prev(); startAuto(); });
 
-  /* ドラッグ / スワイプ（マウス・タッチ共通） */
-  let dragStartX  = 0;
-  let isDragging  = false;
+  /* マウスドラッグ */
+  let dragStartX = 0;
+  let isDragging = false;
 
-  track.addEventListener('pointerdown', e => {
+  viewport.addEventListener('mousedown', e => {
     dragStartX = e.clientX;
     isDragging = true;
-    track.setPointerCapture(e.pointerId);
     viewport.classList.add('is-dragging');
   });
 
-  track.addEventListener('pointerup', e => {
+  viewport.addEventListener('mouseup', e => {
     if (!isDragging) return;
     isDragging = false;
     viewport.classList.remove('is-dragging');
@@ -175,10 +174,25 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 
-  track.addEventListener('pointercancel', () => {
+  viewport.addEventListener('mouseleave', () => {
     isDragging = false;
     viewport.classList.remove('is-dragging');
   });
+
+  /* タッチスワイプ */
+  let touchStartX = 0;
+
+  viewport.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      diff > 0 ? next() : prev();
+      startAuto();
+    }
+  }, { passive: true });
 
   /* 画像のネイティブドラッグを無効化 */
   track.addEventListener('dragstart', e => e.preventDefault());

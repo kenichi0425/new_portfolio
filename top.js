@@ -109,6 +109,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       track.appendChild(clone);
     }
 
+    // アイテム幅をピクセルで明示（CSS パーセント解決の差異を回避）
+    const w = viewport.offsetWidth / visible;
+    track.querySelectorAll('.slider__item').forEach(item => {
+      item.style.width = w + 'px';
+      item.style.flexShrink = '0';
+    });
+
     current = visible; // クローン分ずらして実アイテム先頭を表示
     setPosition(false);
   }

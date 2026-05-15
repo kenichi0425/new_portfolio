@@ -492,6 +492,7 @@ img {
   max-width: calc(100% - 120px);
   overflow: hidden;
   cursor: grab;
+  touch-action: pan-y;
 }
 
 .slider__viewport.is-dragging {
@@ -546,6 +547,8 @@ img {
   align-items: center;
   justify-content: center;
   transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .slider__btn:hover {
   background: #1a1a1a;

@@ -59,7 +59,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* =========================================
-   Slider (infinite loop)
+   Slider (infinite loop / rAF ベース)
+   transitionend に依存しない実装
 ========================================= */
 (function () {
   const sliderEl = document.getElementById('slider');
@@ -70,97 +71,95 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   const prevBtn  = sliderEl.querySelector('.slider__btn--prev');
   const nextBtn  = sliderEl.querySelector('.slider__btn--next');
 
-  let autoTimer        = null;
-  let safetyTimer      = null;
-  let isTransitioning  = false;
-  let current          = 0;
-  let visible          = 0;
-  let origCount        = 0;
+  let autoTimer  = null;
+  let isMoving   = false;
+  let rafToken   = 0;   // アニメキャンセル用トークン
+  let current    = 0;
+  let visible    = 0;
+  let origCount  = 0;
 
-  function getVisible() {
-    return window.innerWidth <= 768 ? 1 : 3;
-  }
-
-  function itemWidth() {
-    return viewport.offsetWidth / visible;
-  }
-
+  function getVisible() { return window.innerWidth <= 768 ? 1 : 3; }
+  function itemW()      { return viewport.offsetWidth / visible; }
   function getOrigItems() {
     return Array.from(track.querySelectorAll('.slider__item:not(.slider__item--clone)'));
   }
 
-  function setup() {
-    track.querySelectorAll('.slider__item--clone').forEach(el => el.remove());
+  /* イージング関数（ease-in-out） */
+  function ease(t) { return t < 0.5 ? 2*t*t : -1 + (4 - 2*t)*t; }
 
-    visible   = getVisible();
+  /* translateX をピクセルで直接セット */
+  function setX(x) { track.style.transform = `translateX(${x}px)`; }
+
+  /* rAF アニメーション ― 完了時に onDone を呼ぶ */
+  function animate(fromX, toX, onDone) {
+    const token    = ++rafToken;
+    const duration = 480;
+    const t0       = performance.now();
+
+    function step(now) {
+      if (rafToken !== token) return; // 別アニメで上書きされた
+      const p = Math.min((now - t0) / duration, 1);
+      setX(fromX + (toX - fromX) * ease(p));
+      if (p < 1) { requestAnimationFrame(step); }
+      else        { onDone(); }
+    }
+    requestAnimationFrame(step);
+  }
+
+  function setup() {
+    rafToken++;        // 実行中アニメを即停止
+    isMoving = false;
+
+    track.querySelectorAll('.slider__item--clone').forEach(el => el.remove());
+    visible  = getVisible();
     const origItems = getOrigItems();
     origCount = origItems.length;
 
-    // 末尾 `visible` 枚のクローンを先頭に挿入
     for (let i = visible - 1; i >= 0; i--) {
-      const clone = origItems[origCount - visible + i].cloneNode(true);
-      clone.classList.add('slider__item--clone');
-      track.insertBefore(clone, track.firstChild);
+      const cl = origItems[origCount - visible + i].cloneNode(true);
+      cl.classList.add('slider__item--clone');
+      track.insertBefore(cl, track.firstChild);
     }
-
-    // 先頭 `visible` 枚のクローンを末尾に追加
     for (let i = 0; i < visible; i++) {
-      const clone = origItems[i].cloneNode(true);
-      clone.classList.add('slider__item--clone');
-      track.appendChild(clone);
+      const cl = origItems[i].cloneNode(true);
+      cl.classList.add('slider__item--clone');
+      track.appendChild(cl);
     }
 
-    // アイテム幅をピクセルで明示（CSS パーセント解決の差異を回避）
-    const w = viewport.offsetWidth / visible;
+    const w = itemW();
     track.querySelectorAll('.slider__item').forEach(item => {
-      item.style.width = w + 'px';
+      item.style.width      = w + 'px';
       item.style.flexShrink = '0';
     });
 
-    current = visible; // クローン分ずらして実アイテム先頭を表示
-    setPosition(false);
+    current = visible;
+    setX(-itemW() * current);
   }
 
-  function setPosition(animate) {
-    track.style.transition = animate ? 'transform 0.5s ease' : 'none';
-    track.style.transform  = `translateX(-${itemWidth() * current}px)`;
-    if (!animate) track.offsetHeight; // reflow で即時反映
+  function move(dir) {
+    if (isMoving) return;
+    isMoving = true;
+
+    const w    = itemW();
+    const from = -w * current;
+    current   += dir;
+    const to   = -w * current;
+
+    animate(from, to, () => {
+      /* ループ端ならアニメなしで実位置へ戻す */
+      if (current >= visible + origCount) {
+        current -= origCount;
+        setX(-itemW() * current);
+      } else if (current < visible) {
+        current += origCount;
+        setX(-itemW() * current);
+      }
+      isMoving = false;
+    });
   }
 
-  function startSafetyTimer() {
-    clearTimeout(safetyTimer);
-    safetyTimer = setTimeout(() => { isTransitioning = false; }, 650);
-  }
-
-  function next() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    current++;
-    setPosition(true);
-    startSafetyTimer();
-  }
-
-  function prev() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    current--;
-    setPosition(true);
-    startSafetyTimer();
-  }
-
-  // アニメーション終了後、クローン領域に入っていたら実位置へ瞬間移動
-  track.addEventListener('transitionend', (e) => {
-    if (e.propertyName !== 'transform') return;
-    clearTimeout(safetyTimer);
-    if (current >= visible + origCount) {
-      current -= origCount;
-      setPosition(false);
-    } else if (current < visible) {
-      current += origCount;
-      setPosition(false);
-    }
-    isTransitioning = false;
-  });
+  function next() { move(1);  }
+  function prev() { move(-1); }
 
   function startAuto() {
     clearInterval(autoTimer);
@@ -179,18 +178,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     isDragging = true;
     viewport.classList.add('is-dragging');
   });
-
   viewport.addEventListener('mouseup', e => {
     if (!isDragging) return;
     isDragging = false;
     viewport.classList.remove('is-dragging');
     const diff = dragStartX - e.clientX;
-    if (Math.abs(diff) > 50) {
-      diff > 0 ? next() : prev();
-      startAuto();
-    }
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); startAuto(); }
   });
-
   viewport.addEventListener('mouseleave', () => {
     isDragging = false;
     viewport.classList.remove('is-dragging');
@@ -198,23 +192,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
   /* タッチスワイプ */
   let touchStartX = 0;
-
   viewport.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;
   }, { passive: true });
-
   viewport.addEventListener('touchend', e => {
     const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      diff > 0 ? next() : prev();
-      startAuto();
-    }
+    if (Math.abs(diff) > 50) { diff > 0 ? next() : prev(); startAuto(); }
   }, { passive: true });
 
-  /* 画像のネイティブドラッグを無効化 */
   track.addEventListener('dragstart', e => e.preventDefault());
 
-  /* リサイズ時に再構築（デバウンス） */
   let resizeTimer;
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);

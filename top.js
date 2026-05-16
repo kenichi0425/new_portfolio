@@ -70,11 +70,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   const prevBtn  = sliderEl.querySelector('.slider__btn--prev');
   const nextBtn  = sliderEl.querySelector('.slider__btn--next');
 
-  let autoTimer       = null;
-  let isTransitioning = false;
-  let current         = 0;
-  let visible         = 0;
-  let origCount       = 0;
+  let autoTimer        = null;
+  let safetyTimer      = null;
+  let isTransitioning  = false;
+  let current          = 0;
+  let visible          = 0;
+  let origCount        = 0;
 
   function getVisible() {
     return window.innerWidth <= 768 ? 1 : 3;
@@ -126,11 +127,17 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (!animate) track.offsetHeight; // reflow で即時反映
   }
 
+  function startSafetyTimer() {
+    clearTimeout(safetyTimer);
+    safetyTimer = setTimeout(() => { isTransitioning = false; }, 650);
+  }
+
   function next() {
     if (isTransitioning) return;
     isTransitioning = true;
     current++;
     setPosition(true);
+    startSafetyTimer();
   }
 
   function prev() {
@@ -138,10 +145,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     isTransitioning = true;
     current--;
     setPosition(true);
+    startSafetyTimer();
   }
 
   // アニメーション終了後、クローン領域に入っていたら実位置へ瞬間移動
-  track.addEventListener('transitionend', () => {
+  track.addEventListener('transitionend', (e) => {
+    if (e.propertyName !== 'transform') return;
+    clearTimeout(safetyTimer);
     if (current >= visible + origCount) {
       current -= origCount;
       setPosition(false);

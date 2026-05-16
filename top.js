@@ -73,7 +73,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   let autoTimer        = null;
   let safetyTimer      = null;
   let isTransitioning  = false;
-  let ignoreTransEnd   = 0;
   let current          = 0;
   let visible          = 0;
   let origCount        = 0;
@@ -128,8 +127,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (!animate) track.offsetHeight; // reflow で即時反映
   }
 
-  // クローン位置からの瞬間移動 + ロック解除
-  function finishMove() {
+  function startSafetyTimer() {
+    clearTimeout(safetyTimer);
+    safetyTimer = setTimeout(() => { isTransitioning = false; }, 650);
+  }
+
+  function next() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    current++;
+    setPosition(true);
+    startSafetyTimer();
+  }
+
+  function prev() {
+    if (isTransitioning) return;
+    isTransitioning = true;
+    current--;
+    setPosition(true);
+    startSafetyTimer();
+  }
+
+  // アニメーション終了後、クローン領域に入っていたら実位置へ瞬間移動
+  track.addEventListener('transitionend', (e) => {
+    if (e.propertyName !== 'transform') return;
     clearTimeout(safetyTimer);
     if (current >= visible + origCount) {
       current -= origCount;
@@ -139,37 +160,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       setPosition(false);
     }
     isTransitioning = false;
-  }
-
-  function armSafety() {
-    clearTimeout(safetyTimer);
-    safetyTimer = setTimeout(() => {
-      ignoreTransEnd++; // 後から届く旧アニメの transitionend を読み捨て
-      finishMove();
-    }, 650);
-  }
-
-  function next() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    current++;
-    setPosition(true);
-    armSafety();
-  }
-
-  function prev() {
-    if (isTransitioning) return;
-    isTransitioning = true;
-    current--;
-    setPosition(true);
-    armSafety();
-  }
-
-  // transitionend: 旧アニメの遅延イベントはカウンターで読み捨て
-  track.addEventListener('transitionend', (e) => {
-    if (e.propertyName !== 'transform') return;
-    if (ignoreTransEnd > 0) { ignoreTransEnd--; return; }
-    finishMove();
   });
 
   function startAuto() {

@@ -1,0 +1,147 @@
+/* =========================================
+   Page Hero
+========================================= */
+.page-hero {
+  padding: 160px 0 80px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.page-hero__title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.page-hero__desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 2;
+}
+
+/* 現在のページのナビリンクに下線を表示 */
+.global-nav__link--current::after {
+  width: 100%;
+}
+
+/* =========================================
+   Works Filter
+========================================= */
+.works-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 48px 0 40px;
+}
+
+.works-filter__btn {
+  padding: 8px 20px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: inherit;
+  letter-spacing: 0.1em;
+  border: 1px solid #ccc;
+  border-radius: 100px;
+  background: #fff;
+  color: #1a1a1a;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.works-filter__btn:hover,
+.works-filter__btn.active {
+  background: #1a1a1a;
+  color: #fff;
+  border-color: #1a1a1a;
+}
+
+/* =========================================
+   Works Grid
+========================================= */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 24px;
+  padding-bottom: 120px;
+  list-style: none;
+}
+
+.work-item__link {
+  display: block;
+}
+
+.work-item__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #c8c0b8;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 14px;
+  overflow: hidden;
+  transition: opacity 0.25s ease;
+}
+
+.work-item__link:hover .work-item__img {
+  opacity: 0.78;
+}
+
+.work-item__cat {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #999;
+  margin-bottom: 6px;
+}
+
+.work-item__title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+  color: #1a1a1a;
+}
+
+/* =========================================
+   Responsive — Tablet (≤1024px)
+========================================= */
+@media (max-width: 1024px) {
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 20px;
+  }
+}
+
+/* =========================================
+   Responsive — Mobile (≤768px)
+========================================= */
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 110px 0 56px;
+  }
+
+  .works-filter {
+    padding: 32px 0 24px;
+    gap: 6px;
+  }
+
+  .works-filter__btn {
+    padding: 7px 14px;
+    font-size: 11px;
+  }
+
+  .works-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 12px;
+    padding-bottom: 80px;
+  }
+}
+
+/* =========================================
+   Responsive — Small Mobile (≤480px)
+========================================= */
+@media (max-width: 480px) {
+  .works-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>制作実績 | YAMADA WEB DESIGN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="top.css">
+  <link rel="stylesheet" href="works.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">YAMADA WEB DESIGN</a>
+      <nav class="global-nav">
+        <ul class="global-nav__list">
+          <li><a href="index.html#about"   class="global-nav__link">私について</a></li>
+          <li><a href="index.html#service" class="global-nav__link">事業内容</a></li>
+          <li><a href="works.html"         class="global-nav__link global-nav__link--current">制作実績</a></li>
+          <li><a href="index.html#contact" class="global-nav__link global-nav__link--btn">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Mobile Nav ===== -->
+  <nav class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav__close" id="mobileNavClose" aria-label="閉じる">
+      <span></span><span></span>
+    </button>
+    <ul class="mobile-nav__list">
+      <li><a href="index.html#about"   class="mobile-nav__link">私について</a></li>
+      <li><a href="index.html#service" class="mobile-nav__link">事業内容</a></li>
+      <li><a href="works.html"         class="mobile-nav__link">制作実績</a></li>
+      <li><a href="index.html#contact" class="mobile-nav__link">お問い合わせ</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-nav__overlay" id="mobileNavOverlay"></div>
+
+  <main>
+
+    <!-- ===== Page Hero ===== -->
+    <section class="page-hero">
+      <div class="container">
+        <p class="lbl">WORKS</p>
+        <h1 class="page-hero__title">制作実績</h1>
+        <p class="page-hero__desc">これまでに制作したWebサイトの実績です。<br>業種・規模を問わず、戦略設計から制作まで一貫して対応しています。</p>
+      </div>
+    </section>
+
+    <!-- ===== Works List ===== -->
+    <section class="works-list">
+      <div class="container">
+
+        <!-- Filter -->
+        <div class="works-filter">
+          <button class="works-filter__btn active" data-filter="all">ALL</button>
+          <button class="works-filter__btn" data-filter="corporate">Corporate</button>
+          <button class="works-filter__btn" data-filter="lp">LP</button>
+          <button class="works-filter__btn" data-filter="recruit">Recruit</button>
+          <button class="works-filter__btn" data-filter="ec">EC</button>
+          <button class="works-filter__btn" data-filter="brand">Brand</button>
+          <button class="works-filter__btn" data-filter="media">Media</button>
+        </div>
+
+        <!-- Grid -->
+        <ul class="works-grid" id="worksGrid">
+
+          <li class="work-item" data-category="corporate">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works1.jpg')"></div>
+              <p class="work-item__cat">Corporate</p>
+              <h2 class="work-item__title">製造業 コーポレートサイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="corporate">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works2.jpg')"></div>
+              <p class="work-item__cat">Corporate</p>
+              <h2 class="work-item__title">IT企業 コーポレートサイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="recruit">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works3.jpg')"></div>
+              <p class="work-item__cat">Recruit</p>
+              <h2 class="work-item__title">採用サイト リニューアル</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="lp">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works4.jpg')"></div>
+              <p class="work-item__cat">LP</p>
+              <h2 class="work-item__title">ランディングページ（健康食品）</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="brand">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works5.jpg')"></div>
+              <p class="work-item__cat">Brand</p>
+              <h2 class="work-item__title">アパレルブランドサイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="ec">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works1.jpg')"></div>
+              <p class="work-item__cat">EC</p>
+              <h2 class="work-item__title">雑貨 ECサイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="corporate">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works2.jpg')"></div>
+              <p class="work-item__cat">Corporate</p>
+              <h2 class="work-item__title">飲食店 コーポレートサイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="corporate">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works3.jpg')"></div>
+              <p class="work-item__cat">Corporate</p>
+              <h2 class="work-item__title">不動産 コーポレートサイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="lp">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works4.jpg')"></div>
+              <p class="work-item__cat">LP</p>
+              <h2 class="work-item__title">LP（転職支援サービス）</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="media">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works5.jpg')"></div>
+              <p class="work-item__cat">Media</p>
+              <h2 class="work-item__title">地域情報メディアサイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="recruit">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works1.jpg')"></div>
+              <p class="work-item__cat">Recruit</p>
+              <h2 class="work-item__title">スタートアップ 採用サイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="ec">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works2.jpg')"></div>
+              <p class="work-item__cat">EC</p>
+              <h2 class="work-item__title">コスメ ECサイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="corporate">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works3.jpg')"></div>
+              <p class="work-item__cat">Corporate</p>
+              <h2 class="work-item__title">士業 コーポレートサイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="brand">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works4.jpg')"></div>
+              <p class="work-item__cat">Brand</p>
+              <h2 class="work-item__title">食品ブランドサイト</h2>
+            </a>
+          </li>
+
+          <li class="work-item" data-category="media">
+            <a href="#" class="work-item__link">
+              <div class="work-item__img" style="background-image:url('images/works5.jpg')"></div>
+              <p class="work-item__cat">Media</p>
+              <h2 class="work-item__title">ライフスタイルメディア</h2>
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section class="contact">
+      <div class="contact__inner container">
+        <div class="contact__content">
+          <p class="lbl">CONTACT</p>
+          <h2 class="contact__title">お問い合わせ・ご相談</h2>
+          <p class="contact__desc">ウェブに関することならお気軽にご相談ください。<br>お見積り依頼のみも可能です。</p>
+        </div>
+        <a href="index.html#contact" class="btn btn--dark btn--pill">お問い合わせをする <span class="arrow-circle arrow-circle--light"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__brand">
+        <p class="footer__logo">YAMADA WEB DESIGN</p>
+        <p class="footer__tagline">戦略設計からデザイン・構築・運用まで。</p>
+      </div>
+      <nav>
+        <ul class="footer__nav-list">
+          <li><a href="index.html#about">私について</a></li>
+          <li><a href="index.html#service">事業内容</a></li>
+          <li><a href="works.html">制作実績</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="top.js"></script>
+  <script src="works.js"></script>
+</body>
+</html>

@@ -53,7 +53,7 @@
 
 .wd-body__grid {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: start;
 }
@@ -138,9 +138,7 @@
 
 /* ── Right column: screenshots ── */
 .wd-shots {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  display: block;
 }
 
 .wd-shot {
@@ -192,7 +190,7 @@
 ========================================= */
 @media (max-width: 1024px) {
   .wd-body__grid {
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 48px;
   }
 }
@@ -216,15 +214,6 @@
 
   /* On mobile, shots come before info */
   .wd-shots { order: -1; }
-
-  .wd-shots {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
-  .wd-shot {
-    aspect-ratio: 4 / 3;
-  }
 
   .wd-gallery {
     padding: 48px 0;

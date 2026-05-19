@@ -169,7 +169,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   nextBtn.addEventListener('click', () => { next(); startAuto(); });
   prevBtn.addEventListener('click', () => { prev(); startAuto(); });
 
-  /* マウスドラッグ */
+  /* マウスドラッグ（50px未満の移動はリンク遷移を許可） */
   let dragStartX = 0;
   let isDragging = false;
 
@@ -189,8 +189,12 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     isDragging = false;
     viewport.classList.remove('is-dragging');
   });
+  /* ドラッグ中はリンク遷移をキャンセル */
+  viewport.addEventListener('click', e => {
+    if (Math.abs(dragStartX - e.clientX) > 5) e.preventDefault();
+  });
 
-  /* タッチスワイプ */
+  /* タッチスワイプ（50px未満はリンク遷移を許可） */
   let touchStartX = 0;
   viewport.addEventListener('touchstart', e => {
     touchStartX = e.touches[0].clientX;

@@ -520,6 +520,10 @@ img {
   overflow: hidden;
 }
 
+.slider__link {
+  display: block;
+}
+
 .slider__title {
   font-size: 15px;
   font-weight: 700;

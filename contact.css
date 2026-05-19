@@ -1,0 +1,257 @@
+/* =========================================
+   Contact Page Layout
+========================================= */
+.cp {
+  padding: 140px 0 120px;
+}
+
+.cp__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* =========================================
+   Left: Info
+========================================= */
+.cp-info__title {
+  font-size: clamp(26px, 2.6vw, 36px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  margin-bottom: 24px;
+}
+
+.cp-info__desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 2;
+  margin-bottom: 16px;
+}
+
+.cp-info__reply {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 10px;
+}
+
+.cp-info__req {
+  font-size: 12px;
+  color: #aaa;
+  margin-bottom: 48px;
+}
+.cp-info__req em {
+  color: #c0392b;
+  font-style: normal;
+}
+
+.cp-info__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cp-info__card {
+  padding: 18px 22px;
+  border: 1px solid #e8e8e8;
+}
+
+.cp-info__card dt {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.cp-info__card dd {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.8;
+}
+
+/* =========================================
+   Right: Form
+========================================= */
+.c-form__row {
+  margin-bottom: 0;
+}
+
+.c-form__row--half {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.c-form__group {
+  margin-bottom: 28px;
+}
+
+.c-form__label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.c-form__req {
+  color: #c0392b;
+  margin-left: 2px;
+}
+
+.c-form__input,
+.c-form__select,
+.c-form__textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #1a1a1a;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.c-form__input::placeholder,
+.c-form__textarea::placeholder {
+  color: #bbb;
+}
+
+.c-form__input:focus,
+.c-form__select:focus,
+.c-form__textarea:focus {
+  border-color: #1a1a1a;
+}
+
+.c-form__select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpolyline points='1 1 6 6 11 1' fill='none' stroke='%23999' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.c-form__textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.8;
+}
+
+/* Checkboxes */
+.c-form__checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+
+.c-form__check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+}
+
+.c-form__check input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: #1a1a1a;
+}
+
+/* Footer */
+.c-form__footer {
+  border-top: 1px solid #e8e8e8;
+  padding-top: 36px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.c-form__submit {
+  width: 100%;
+  padding: 18px;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  border: none;
+}
+
+.c-form__privacy {
+  font-size: 12px;
+  color: #aaa;
+  text-align: center;
+}
+
+.c-form__privacy a {
+  color: #888;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+.c-form__privacy a:hover { color: #1a1a1a; }
+
+/* =========================================
+   Responsive — Tablet (≤1024px)
+========================================= */
+@media (max-width: 1024px) {
+  .cp__grid {
+    grid-template-columns: 1fr 1.3fr;
+    gap: 60px;
+  }
+}
+
+/* =========================================
+   Responsive — Mobile (≤768px)
+========================================= */
+@media (max-width: 768px) {
+  .cp {
+    padding: 110px 0 80px;
+  }
+
+  .cp__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .cp-info__req {
+    margin-bottom: 0;
+  }
+
+  .cp-info__cards {
+    display: none;
+  }
+
+  .c-form__checks {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .c-form__submit {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   Responsive — Small Mobile (≤480px)
+========================================= */
+@media (max-width: 480px) {
+  .c-form__row--half {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .c-form__checks {
+    grid-template-columns: 1fr;
+  }
+}

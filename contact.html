@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ | YAMADA WEB DESIGN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="top.css">
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">YAMADA WEB DESIGN</a>
+      <nav class="global-nav">
+        <ul class="global-nav__list">
+          <li><a href="index.html#about"   class="global-nav__link">私について</a></li>
+          <li><a href="index.html#service" class="global-nav__link">事業内容</a></li>
+          <li><a href="works.html"         class="global-nav__link">制作実績</a></li>
+          <li><a href="contact.html"       class="global-nav__link global-nav__link--btn">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニュー" aria-expanded="false">
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+        <span class="hamburger__line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Mobile Nav ===== -->
+  <nav class="mobile-nav" id="mobileNav">
+    <button class="mobile-nav__close" id="mobileNavClose" aria-label="閉じる">
+      <span></span><span></span>
+    </button>
+    <ul class="mobile-nav__list">
+      <li><a href="index.html#about"   class="mobile-nav__link">私について</a></li>
+      <li><a href="index.html#service" class="mobile-nav__link">事業内容</a></li>
+      <li><a href="works.html"         class="mobile-nav__link">制作実績</a></li>
+      <li><a href="contact.html"       class="mobile-nav__link">お問い合わせ</a></li>
+    </ul>
+  </nav>
+  <div class="mobile-nav__overlay" id="mobileNavOverlay"></div>
+
+  <main>
+    <section class="cp">
+      <div class="container">
+        <div class="cp__grid">
+
+          <!-- ===== Left: Info ===== -->
+          <div class="cp-info">
+            <p class="lbl">CONTACT</p>
+            <h1 class="cp-info__title">お問い合わせ<br>ご相談</h1>
+            <p class="cp-info__desc">
+              制作に関するご相談やお問い合わせは、必要事項をご入力の上、送信してください。<br>
+              お見積りのみのご依頼もお受けしています。
+            </p>
+            <p class="cp-info__reply">2〜3営業日以内に担当よりメールにてご返信いたします。</p>
+            <p class="cp-info__req">※ <em>*</em> が付いている項目は必須です</p>
+
+            <dl class="cp-info__cards">
+              <div class="cp-info__card">
+                <dt>無料相談</dt>
+                <dd>ご要件・ご予算感など、まずはお気軽にご相談ください。</dd>
+              </div>
+              <div class="cp-info__card">
+                <dt>お見積り</dt>
+                <dd>ご要件をお伺いした上で、無料でお見積りいたします。</dd>
+              </div>
+              <div class="cp-info__card">
+                <dt>秘密厳守</dt>
+                <dd>お問い合わせ内容は厳重に管理いたします。</dd>
+              </div>
+            </dl>
+          </div>
+
+          <!-- ===== Right: Form ===== -->
+          <form class="c-form" action="#" method="post" novalidate>
+
+            <!-- 姓 / 名 -->
+            <div class="c-form__row c-form__row--half">
+              <div class="c-form__group">
+                <label class="c-form__label">姓 <span class="c-form__req">*</span></label>
+                <input type="text" class="c-form__input" name="last_name" autocomplete="family-name" required>
+              </div>
+              <div class="c-form__group">
+                <label class="c-form__label">名 <span class="c-form__req">*</span></label>
+                <input type="text" class="c-form__input" name="first_name" autocomplete="given-name" required>
+              </div>
+            </div>
+
+            <!-- 会社名 -->
+            <div class="c-form__group">
+              <label class="c-form__label">会社名・屋号</label>
+              <input type="text" class="c-form__input" name="company" autocomplete="organization">
+            </div>
+
+            <!-- メール -->
+            <div class="c-form__group">
+              <label class="c-form__label">メールアドレス <span class="c-form__req">*</span></label>
+              <input type="email" class="c-form__input" name="email" autocomplete="email" required>
+            </div>
+
+            <!-- 電話番号 -->
+            <div class="c-form__group">
+              <label class="c-form__label">電話番号</label>
+              <input type="tel" class="c-form__input" name="tel" autocomplete="tel">
+            </div>
+
+            <!-- ご相談の種別 -->
+            <div class="c-form__group">
+              <label class="c-form__label">ご相談の種別 <span class="c-form__req">*</span></label>
+              <select class="c-form__select" name="type" required>
+                <option value="" disabled selected>選択してください</option>
+                <option>Webサイト制作（コーポレート）</option>
+                <option>LP制作</option>
+                <option>採用サイト制作</option>
+                <option>ECサイト制作</option>
+                <option>デザイン設計・UI改善</option>
+                <option>SEO対策</option>
+                <option>保守・運用</option>
+                <option>その他</option>
+              </select>
+            </div>
+
+            <!-- ご相談内容 -->
+            <div class="c-form__group">
+              <label class="c-form__label">ご相談内容 <span class="c-form__req">*</span></label>
+              <textarea class="c-form__textarea" name="message" rows="5" required></textarea>
+            </div>
+
+            <!-- ご予算 -->
+            <div class="c-form__group">
+              <label class="c-form__label">ご予算 <span class="c-form__req">*</span></label>
+              <select class="c-form__select" name="budget" required>
+                <option value="" disabled selected>選択してください</option>
+                <option>30万円未満</option>
+                <option>30〜50万円</option>
+                <option>50〜100万円</option>
+                <option>100〜200万円</option>
+                <option>200万円以上</option>
+                <option>未定・要相談</option>
+              </select>
+            </div>
+
+            <!-- 希望納期 -->
+            <div class="c-form__group">
+              <label class="c-form__label">希望納期</label>
+              <input type="text" class="c-form__input" name="deadline" placeholder="例）2024年9月ごろ">
+            </div>
+
+            <!-- 知ったキッカケ -->
+            <div class="c-form__group">
+              <label class="c-form__label">知ったキッカケ</label>
+              <div class="c-form__checks">
+                <label class="c-form__check"><input type="checkbox" name="source" value="search">検索で見つけた</label>
+                <label class="c-form__check"><input type="checkbox" name="source" value="sns">SNSで知った</label>
+                <label class="c-form__check"><input type="checkbox" name="source" value="referral">知人に紹介された</label>
+                <label class="c-form__check"><input type="checkbox" name="source" value="blog">ブログ・記事で知った</label>
+                <label class="c-form__check"><input type="checkbox" name="source" value="works">制作実績を見て</label>
+                <label class="c-form__check"><input type="checkbox" name="source" value="other">その他</label>
+              </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="c-form__footer">
+              <button type="submit" class="c-form__submit btn btn--dark">送信する</button>
+              <p class="c-form__privacy">
+                <a href="#">個人情報保護方針</a>について同意したものとみなされます
+              </p>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__inner container">
+      <div class="footer__brand">
+        <p class="footer__logo">YAMADA WEB DESIGN</p>
+        <p class="footer__tagline">戦略設計からデザイン・構築・運用まで。</p>
+      </div>
+      <nav>
+        <ul class="footer__nav-list">
+          <li><a href="index.html#about">私について</a></li>
+          <li><a href="index.html#service">事業内容</a></li>
+          <li><a href="works.html">制作実績</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="top.js"></script>
+</body>
+</html>

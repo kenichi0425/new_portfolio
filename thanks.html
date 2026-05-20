@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>送信完了 | K WEB DESIGN</title>
+  <title>送信完了 | ARAI WEB DESIGN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -45,7 +45,7 @@
   <!-- ===== Header ===== -->
   <header class="header" id="header">
     <div class="header__inner">
-      <a href="index.html" class="header__logo">K WEB DESIGN</a>
+      <a href="index.html" class="header__logo">ARAI WEB DESIGN</a>
       <nav class="global-nav">
         <ul class="global-nav__list">
           <li><a href="index.html#about"   class="global-nav__link">私について</a></li>
@@ -99,7 +99,7 @@
   <footer class="footer">
     <div class="footer__inner container">
       <div class="footer__brand">
-        <p class="footer__logo">K WEB DESIGN</p>
+        <p class="footer__logo">ARAI WEB DESIGN</p>
         <p class="footer__tagline">戦略設計からデザイン・構築・運用まで。</p>
       </div>
       <nav>

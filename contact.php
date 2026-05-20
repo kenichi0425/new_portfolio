@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   if ($old['budget'] === '')  $errors[] = 'ご予算を選択してください。';
 
   if (empty($errors)) {
-    mb_language('Japanese');
+    mb_language('uni');
     mb_internal_encoding('UTF-8');
 
     $admin_to   = 'info@k-web-studio-km.com';

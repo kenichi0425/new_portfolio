@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $admin_to   = 'info@k-web-studio-km.com';
     $from_addr  = 'noreply@k-web-studio-km.com';
-    $site_name  = 'YAMADA WEB DESIGN';
+    $site_name  = 'K WEB DESIGN';
 
     // ── 管理者宛メール ──
     $admin_subject = '【お問い合わせ】' . $old['name'] . ' 様よりお問い合わせがありました';
@@ -113,7 +113,7 @@ function h($str) { return htmlspecialchars($str, ENT_QUOTES, 'UTF-8'); }
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お問い合わせ | YAMADA WEB DESIGN</title>
+  <title>お問い合わせ | K WEB DESIGN</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
@@ -125,7 +125,7 @@ function h($str) { return htmlspecialchars($str, ENT_QUOTES, 'UTF-8'); }
   <!-- ===== Header ===== -->
   <header class="header" id="header">
     <div class="header__inner">
-      <a href="index.html" class="header__logo">YAMADA WEB DESIGN</a>
+      <a href="index.html" class="header__logo">K WEB DESIGN</a>
       <nav class="global-nav">
         <ul class="global-nav__list">
           <li><a href="index.html#about"   class="global-nav__link">私について</a></li>
@@ -278,7 +278,7 @@ function h($str) { return htmlspecialchars($str, ENT_QUOTES, 'UTF-8'); }
   <footer class="footer">
     <div class="footer__inner container">
       <div class="footer__brand">
-        <p class="footer__logo">YAMADA WEB DESIGN</p>
+        <p class="footer__logo">K WEB DESIGN</p>
         <p class="footer__tagline">戦略設計からデザイン・構築・運用まで。</p>
       </div>
       <nav>

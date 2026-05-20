@@ -73,9 +73,7 @@ img {
   font-weight: 400;
   letter-spacing: 0.1em;
   color: #333;
-  transition: gap 0.25s ease;
 }
-.view-more:hover { gap: 20px; }
 
 /* 矢印の円 */
 .arrow-circle {
@@ -87,7 +85,7 @@ img {
   border-radius: 50%;
   border: 1px solid #bbb;
   flex-shrink: 0;
-  transition: background 0.25s ease, border-color 0.25s ease;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
 /* ダークボタン内（白い円） */
@@ -100,6 +98,7 @@ img {
   background: #1a1a1a;
   border-color: #1a1a1a;
   color: #fff;
+  transform: translateX(6px);
 }
 
 /* ダークボタン反転ホバー */

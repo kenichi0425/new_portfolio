@@ -81,22 +81,10 @@
           <!-- ===== Right: Form ===== -->
           <form class="c-form" action="#" method="post" novalidate>
 
-            <!-- 姓 / 名 -->
-            <div class="c-form__row c-form__row--half">
-              <div class="c-form__group">
-                <label class="c-form__label">姓 <span class="c-form__req">*</span></label>
-                <input type="text" class="c-form__input" name="last_name" autocomplete="family-name" required>
-              </div>
-              <div class="c-form__group">
-                <label class="c-form__label">名 <span class="c-form__req">*</span></label>
-                <input type="text" class="c-form__input" name="first_name" autocomplete="given-name" required>
-              </div>
-            </div>
-
-            <!-- 会社名 -->
+            <!-- 名前 -->
             <div class="c-form__group">
-              <label class="c-form__label">会社名・屋号</label>
-              <input type="text" class="c-form__input" name="company" autocomplete="organization">
+              <label class="c-form__label">名前 <span class="c-form__req">*</span></label>
+              <input type="text" class="c-form__input" name="name" autocomplete="name" required>
             </div>
 
             <!-- メール -->
@@ -151,19 +139,6 @@
             <div class="c-form__group">
               <label class="c-form__label">希望納期</label>
               <input type="text" class="c-form__input" name="deadline" placeholder="例）2024年9月ごろ">
-            </div>
-
-            <!-- 知ったキッカケ -->
-            <div class="c-form__group">
-              <label class="c-form__label">知ったキッカケ</label>
-              <div class="c-form__checks">
-                <label class="c-form__check"><input type="checkbox" name="source" value="search">検索で見つけた</label>
-                <label class="c-form__check"><input type="checkbox" name="source" value="sns">SNSで知った</label>
-                <label class="c-form__check"><input type="checkbox" name="source" value="referral">知人に紹介された</label>
-                <label class="c-form__check"><input type="checkbox" name="source" value="blog">ブログ・記事で知った</label>
-                <label class="c-form__check"><input type="checkbox" name="source" value="works">制作実績を見て</label>
-                <label class="c-form__check"><input type="checkbox" name="source" value="other">その他</label>
-              </div>
             </div>
 
             <!-- Submit -->

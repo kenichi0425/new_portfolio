@@ -72,6 +72,32 @@
 }
 
 /* =========================================
+   Error Messages
+========================================= */
+.c-form__errors {
+  background: #fff5f5;
+  border: 1px solid #f5c6c6;
+  padding: 16px 20px;
+  margin-bottom: 28px;
+}
+
+.c-form__errors ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.c-form__errors li {
+  font-size: 13px;
+  color: #c0392b;
+  line-height: 1.8;
+}
+
+.c-form__errors li::before {
+  content: '・';
+}
+
+/* =========================================
    Right: Form
 ========================================= */
 .c-form__row {
